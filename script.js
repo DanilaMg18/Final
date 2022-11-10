@@ -3,7 +3,7 @@ let productList;
 
 let wrapper  = document.querySelector(".cards-list");
 let producerList = ["TOSHIBA", "APPLE", "HP", "ACER", "ASUS", "LENOVO", "DELL"];
-
+let ssdList = ['128GB', '256GB', '512GB', '1TB', '2TB', '4TB'];
 function render(list, parent) {
   parent.innerHTML = '';
   
@@ -66,20 +66,59 @@ function render(list, parent) {
     })
 }
 
-render(productList,wrapper);
+function countAmount(filterList,productList) {
+    filterList.forEach(prod => {
+        let amount = 0;
+
+        productList.forEach(product => {
+            if (product.producer === prod) amount++
+        })
+
+        let el = document.querySelector(`.${prod}.result-amount`)
+        el.innerHTML = `(${amount})`
+    })
+    
+}
+
+function countSsd(filterList,productList) {
+    filterList.forEach(prod => {
+        let amount = 0;
+
+        productList.forEach(product => {
+            if (product.ssd === prod) amount++
+        })
+
+        let el = document.querySelector(`.${prod}.result-amount`)
+        el.innerHTML = `(${amount})`
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 async function getx() {
     let res = await fetch('https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards')
     let dataResp = await res.json()
     let productList = dataResp[0].data
     console.log(productList);
-    
-  
+    render(productList,wrapper);
+    countAmount(producerList,productList)
+    countSsd(ssdList,productList)
 }
 getx();
 
-          
-          
+
+
+
           
           
           
