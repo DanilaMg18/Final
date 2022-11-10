@@ -1,5 +1,5 @@
 let url = 'https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards'
-let productList =[
+let productList2 = [
         {
           "discount": true,
           "availableInShop": true,
@@ -242,7 +242,7 @@ function countSsd(filterList,productList) {
         let amount = 0;
 
         productList.forEach(product => {
-            if (product.ssd === prod) amount++
+            if (product.specs.ssd === prod) amount++
         })
 
         let el = document.querySelector(`.${prod}.result-amount`)
@@ -269,7 +269,7 @@ async function getx() {
     console.log(productList);
     render(productList,wrapper);
     countAmount(producerList,productList)
-    countSsd(ssdList,productList)
+    countSsd(ssdList,productList2)
 }
 getx();
 
