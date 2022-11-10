@@ -1,9 +1,166 @@
 let url = 'https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards'
-let productList;
+let productList =[
+        {
+          "discount": true,
+          "availableInShop": true,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/8/d/8ddce922_5d30_4ace_9424_e59e715648cf_516494_1664333829.jpeg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PYU13E1181",
+          "specs": {
+            "ram": 8,
+            "screenSizeText": "15.6\" (~39,6cm)",
+            "screenSizeValue": 15.6,
+            "ssd": "GB256"
+          },
+          "price": "702,00",
+          "ePrice": false,
+          "shopPrice": true
+        },
+        {
+          "discount": true,
+          "availableInShop": true,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/b/2/b2d80a67_8649_4516_b31b_de8a65287ef0_516493_1664333827.jpeg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PYU13E1183",
+          "specs": {
+            "ram": 8,
+            "screenSizeText": "15.6\" (~39,6cm)",
+            "screenSizeValue": 15.6,
+            "ssd": "GB256"
+          },
+          "price": "644,00",
+          "ePrice": false,
+          "shopPrice": true
+        },
+        {
+          "discount": true,
+          "availableInShop": false,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/e/3/e3ab10be_330a_4a62_9624_5fc551755e01_515800_1663979097.jpeg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PMM20E11HA",
+          "specs": {
+            "ram": 16,
+            "screenSizeText": "15.6\" (~39,6cm)",
+            "screenSizeValue": 15.6,
+            "ssd": "GB512"
+          },
+          "price": "1192,00",
+          "ePrice": true,
+          "shopPrice": false
+        },
+        {
+          "discount": true,
+          "availableInShop": true,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/f/i/file_515159_1663803347.jpg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PYS36E1166",
+          "specs": {
+            "ram": 8,
+            "screenSizeText": "14\" (~35,6cm)",
+            "screenSizeValue": 14,
+            "ssd": "GB256"
+          },
+          "price": "575,00",
+          "ePrice": false,
+          "shopPrice": false
+        },
+        {
+          "discount": true,
+          "availableInShop": true,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/f/i/file_515155_1663803319.jpg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PYS44E1114",
+          "specs": {
+            "ram": 4,
+            "screenSizeText": "15.6\" (~39,6cm)",
+            "screenSizeValue": 15.6,
+            "ssd": "GB256"
+          },
+          "price": "448,00",
+          "ePrice": false,
+          "shopPrice": true
+        },
+        {
+          "discount": false,
+          "availableInShop": true,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/f/i/file_514171_1663371522.jpg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PYS44E1113",
+          "specs": {
+            "ram": 8,
+            "screenSizeText": "15.6\" (~39,6cm)",
+            "screenSizeValue": 15.6,
+            "ssd": "GB256"
+          },
+          "price": "530,00",
+          "ePrice": false,
+          "shopPrice": true
+        },
+        {
+          "discount": true,
+          "availableInShop": true,
+          "processor": "AMD",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/c/e/cec837f3_5968_48e5_817d_52b30cb11e1c_451735_1642686411.jpeg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PMM10E111T",
+          "specs": {
+            "ram": 8,
+            "screenSizeText": "13.3\" (~33,8cm)",
+            "screenSizeValue": 13.3,
+            "ssd": "GB256"
+          },
+          "price": "1019,00",
+          "ePrice": false,
+          "shopPrice": true
+        },
+        {
+          "discount": false,
+          "availableInShop": false,
+          "processor": "Intel",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/f/i/file_515156_1663803338.jpg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PML15E1133",
+          "specs": {
+            "ram": 32,
+            "screenSizeText": "17.3\" (~43,9cm)",
+            "screenSizeValue": 17.3,
+            "ssd": "GB512"
+          },
+          "price": "1402,00",
+          "ePrice": true,
+          "shopPrice": false
+        },
+        {
+          "discount": true,
+          "availableInShop": false,
+          "processor": "Intel",
+          "producer": "TOSHIBA",
+          "image": "https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,height=150,quality=80/media/catalog/product/f/i/file_514170_1663371506.jpg",
+          "description": "Nešiojamas kompiuteris TOSHIBA A1PYS44E1112",
+          "specs": {
+            "ram": 16,
+            "screenSizeText": "13\" (~33,0cm)",
+            "screenSizeValue": 13,
+            "ssd": "TB1"
+          },
+          "price": "1502,00",
+          "ePrice": true,
+          "shopPrice": false
+        }
+      ]
+    
+  
+    
 
 let wrapper  = document.querySelector(".cards-list");
 let producerList = ["TOSHIBA", "APPLE", "HP", "ACER", "ASUS", "LENOVO", "DELL"];
-let ssdList = ['128GB', '256GB', '512GB', '1TB', '2TB', '4TB'];
+let ssdList = ['GB128', 'GB256', 'GB512', 'TB1', 'TB2', 'TB4'];
 function render(list, parent) {
   parent.innerHTML = '';
   
