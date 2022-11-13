@@ -159,6 +159,10 @@ let productList;
 let wrapper  = document.querySelector(".cards-list");
 let producerList = ["TOSHIBA", "APPLE", "HP", "ACER", "ASUS", "LENOVO", "DELL"];
 let ssdList = ['128GB', '256GB', '512GB', '1TB', '2TB', '4TB'];
+let ramList = [4, 8, 16, 32, 64]
+let procList = ['AMD', 'Intel', 'Apple M1', 'Apple M2']
+let screenList = [13, 13.3, 14, 15.6, 16, 17.3]
+let priceList = ['702,00', '644,00', '1192,00', '575,00', '448,00', '530,00', '1019,00', '1402,00', '1502,00']
 
 function render(list, parent) {
   parent.innerHTML = '';
@@ -237,23 +241,120 @@ function countAmount(filterList,productList) {
 }
 
 function countSsd(filterList,productList) {
-    filterList.forEach(prod => {
+    let eList = document.querySelectorAll(`.ssd.result-amount`)
+    console.log(eList)
+
+    filterList.forEach(ssd => {
         let amount = 0;
 
         productList.forEach(product => {
-            if (product.specs.ssd === prod){
-                 amount++
-            }else if (data-ram === prod) {
-            let el = document.querySelector(`.ram.result-amount`)
-                el.innerHTML = `(${amount})`
-                }
+            if (product.specs.ssd === ssd)amount++
+           
+        })
+        
+        eList.forEach(ssdFilterEl => {
+            if (ssdFilterEl.dataset.ssd === ssd){
+                ssdFilterEl.innerHTML = `(${amount})`
+            }
+        })
+    })
+}
 
-            })
-        }
+function countProc(filterList,productList) {
 
-    )}
+    let eList = document.querySelectorAll(`.proc.result-amount`)
+    console.log(eList)
 
+    filterList.forEach(proc => {
+        let amount = 0;
 
+        productList.forEach(product => {
+            if (product.processor === proc)amount++
+           
+        })
+        
+        eList.forEach(procFilterEl => {
+            if (procFilterEl.dataset.proc === proc){
+                procFilterEl.innerHTML = `(${amount})`
+            }
+        })
+    })
+}
+
+function countScreen(filterList,productList) {
+    let eList = document.querySelectorAll(`.screen.result-amount`)
+    console.log(eList)
+
+    filterList.forEach(screen => {
+        let amount = 0;
+
+        productList.forEach(product => {
+            if (product.specs.screenSizeValue === screen)amount++
+           
+        })
+        
+        eList.forEach(screenFilterEl => {
+
+            if (screenFilterEl.dataset.screen == screen){
+                screenFilterEl.innerHTML = `(${amount})`
+            }
+        })
+    })
+}
+
+function countRam(filterList,productList) {
+    let eList = document.querySelectorAll(`.ram.result-amount`)
+    console.log(eList)
+
+    filterList.forEach(ram => {
+        let amount = 0;
+
+        productList.forEach(product => {
+            if (product.specs.ram === ram)amount++
+           
+        })
+        
+        eList.forEach(ramFilterEl => {
+
+            if (ramFilterEl.dataset.ram == ram){
+                ramFilterEl.innerHTML = `(${amount})`
+            }
+        })
+    })
+}
+
+function countPrice(filterList,productList){
+    let eList = document.querySelectorAll(`.price.result-amount`)
+    console.log(eList)
+
+    filterList.forEach(price => {
+        let amount = 0;
+
+        productList.forEach(product => {
+            if (product.price === price)amount++
+           
+        })
+        
+        eList.forEach(priceFilterEl => {
+
+            if (priceFilterEl.dataset.price == price){
+                priceFilterEl.innerHTML = `(${amount})`
+            }
+        })
+    })
+}
+
+function sortOption(productList) {
+ let newArr = productList.splice(4,5)
+    return newArr
+}
+
+let selectEL = document.querySelector('.select')
+
+selectEL.addEventListener('click', (e) => {
+    If (e.target.value === "5")
+        render(newArr,wrapper)
+})
 
 
 
@@ -274,6 +375,9 @@ async function getx() {
     render(productList,wrapper);
     countAmount(producerList,productList)
     countSsd(ssdList,productList)
+    countProc(procList,productList)
+    countScreen(screenList,productList)
+    countRam(ramList,productList)
 }
 getx();
 
