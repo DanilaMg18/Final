@@ -86,7 +86,7 @@ function countAmount(filterList,productList) {
 
 function countSsd(filterList,productList) {
     let eList = document.querySelectorAll(`.ssd.result-amount`)
-    console.log(eList)
+    
 
     filterList.forEach(ssd => {
         let amount = 0;
@@ -107,7 +107,7 @@ function countSsd(filterList,productList) {
 function countProc(filterList,productList) {
 
     let eList = document.querySelectorAll(`.proc.result-amount`)
-    console.log(eList)
+    
 
     filterList.forEach(proc => {
         let amount = 0;
@@ -127,7 +127,7 @@ function countProc(filterList,productList) {
 
 function countScreen(filterList,productList) {
     let eList = document.querySelectorAll(`.screen.result-amount`)
-    console.log(eList)
+    
 
     filterList.forEach(screen => {
         let amount = 0;
@@ -148,7 +148,7 @@ function countScreen(filterList,productList) {
 
 function countRam(filterList,productList) {
     let eList = document.querySelectorAll(`.ram.result-amount`)
-    console.log(eList)
+    
 
     filterList.forEach(ram => {
         let amount = 0;
@@ -169,7 +169,7 @@ function countRam(filterList,productList) {
 
 function countPrice(filterList,productList){
     let eList = document.querySelectorAll(`.price.result-amount`)
-    console.log(eList)
+    
 
     filterList.forEach(price => {
         let amount = 0;
@@ -195,7 +195,7 @@ function sortOption(productList,amount) {
 
 let selectEL = document.querySelector(`.count.sort-select`)
 
-selectEL.addEventListener('click', (e) => {
+selectEL.addEventListener('change', (e) => {
     if (e.target.value === "5") {
         render(sortOption(productList,5),wrapper)
     }
@@ -205,8 +205,18 @@ selectEL.addEventListener('click', (e) => {
 })
 
 
+function sortFromDownToUp(productList) {
+    productList.sort((a,b) => a.price > b.price? 1 : -1);
+}
 
+let selectEL2 = document.querySelector(`.menu.sort-select`)
 
+selectEL2.addEventListener('change', (e) => {
+    if (e.target.value === "price_asc") {
+        render(sortFromDownToUp(productList),wrapper)
+    }
+ 
+})
 
 
 
@@ -218,7 +228,7 @@ selectEL.addEventListener('click', (e) => {
 async function getx() {
     let res = await fetch('https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards')
     let dataResp = await res.json()
-    let productList = dataResp[0].data
+    productList = dataResp[0].data
     console.log(productList);
     render(productList,wrapper);
     countAmount(producerList,productList)
