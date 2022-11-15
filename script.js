@@ -206,7 +206,8 @@ selectEL.addEventListener('change', (e) => {
 
 
 function sortFromDownToUp(productList) {
-    productList.sort((a,b) => a.price > b.price? 1 : -1);
+    let newArray = productList.sort((a,b) => a.price > b.price? 1 : -1);
+    return newArray
 }
 
 let selectEL2 = document.querySelector(`.menu.sort-select`)
