@@ -169,7 +169,7 @@ function countRam(filterList,productList) {
 
 function countPrice(filterList,productList){
     let eList = document.querySelectorAll(`.price.result-amount`)
-    
+    console.log(eList)
 
     filterList.forEach(price => {
         let amount = 0;
@@ -180,8 +180,7 @@ function countPrice(filterList,productList){
         })
         
         eList.forEach(priceFilterEl => {
-
-            if (priceFilterEl.dataset.price == price){
+            if (priceFilterEl.dataset.price1 <= parseInt(price)){
                 priceFilterEl.innerHTML = `(${amount})`
             }
         })
@@ -206,7 +205,7 @@ selectEL.addEventListener('change', (e) => {
 
 
 function sortFromDownToUp(productList) {
-    let newArray = productList.sort((a,b) => a.price > b.price? 1 : -1);
+    let newArray = productList.sort((a,b) => parseFloat(a.price) > parseFloat(b.price)? 1 : -1);
     return newArray
 }
 
@@ -216,10 +215,16 @@ selectEL2.addEventListener('change', (e) => {
     if (e.target.value === "price_asc") {
         render(sortFromDownToUp(productList),wrapper)
     }
+    else if(e.target.value === 'price_desc') {
+        render(sortFromUpToDown(productList),wrapper)
+    }
  
 })
 
-
+function sortFromUpToDown(productList) {
+    let newArray = productList.sort((a,b) => parseFloat(a.price) < parseFloat(b.price)? 1 : -1);
+    return newArray
+}
 
 
 
@@ -237,6 +242,7 @@ async function getx() {
     countProc(procList,productList)
     countScreen(screenList,productList)
     countRam(ramList,productList)
+    countPrice(priceList,productList)
 }
 getx();
 
