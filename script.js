@@ -167,25 +167,53 @@ function countRam(filterList,productList) {
     })
 }
 
-function countPrice(filterList,productList){
+function countPrice(productList){
     let eList = document.querySelectorAll(`.price.result-amount`)
-    console.log(eList)
 
-    filterList.forEach(price => {
-        let amount = 0;
-
-        productList.forEach(product => {
-            if (product.price === price)amount++
-           
-        })
-        
-        eList.forEach(priceFilterEl => {
-            if (priceFilterEl.dataset.price1 <= parseInt(price)){
-                priceFilterEl.innerHTML = `(${amount})`
-            }
-        })
+    eList.forEach(label => {
+        let priceRange = label.dataset.price
+        if (priceRange === '600/'){
+            let amount = productList.filter(product => parseFloat(product.price) < 600).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '600/750'){
+            let amount = productList.filter(product => parseFloat(product.price) > 600 && parseFloat(product.price) < 750).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '750/900'){
+            let amount = productList.filter(product => parseFloat(product.price) > 750 && parseFloat(product.price) < 900).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '900/1100'){
+            let amount = productList.filter(product => parseFloat(product.price) > 900 && parseFloat(product.price) < 1100).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '1100/1220'){
+            let amount = productList.filter(product => parseFloat(product.price) > 1100 && parseFloat(product.price) < 1220).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '1220/1500'){
+            let amount = productList.filter(product => parseFloat(product.price) > 1220 && parseFloat(product.price) < 1500).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '1500/1800'){
+            let amount = productList.filter(product => parseFloat(product.price) > 1500 && parseFloat(product.price) < 1800).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '1800/2200'){
+            let amount = productList.filter(product => parseFloat(product.price) > 3000 && parseFloat(product.price) < 2200).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '2200/3000'){
+            let amount = productList.filter(product => parseFloat(product.price) > 2200 && parseFloat(product.price) < 3000).length
+            label.innerHTML = `(${amount})`
+        }
+        if (priceRange === '3000/'){
+            let amount = productList.filter(product => parseFloat(product.price) > 3000).length
+            label.innerHTML = `(${amount})`
+        }
     })
-}
+}   
 
 function sortOption(productList,amount) {
  let newArr = productList.slice(0,amount)
@@ -242,7 +270,7 @@ async function getx() {
     countProc(procList,productList)
     countScreen(screenList,productList)
     countRam(ramList,productList)
-    countPrice(priceList,productList)
+    countPrice(productList)
 }
 getx();
 
