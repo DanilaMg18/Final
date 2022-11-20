@@ -1,10 +1,10 @@
 let url = 'https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards'
 let productList;
 let wrapper  = document.querySelector(".cards-list");
-let producerList = ["TOSHIBA", "APPLE", "HP", "ACER", "ASUS", "LENOVO", "DELL"];
+let producerList = ["TOSHIBA", "Apple", "HP", "ACER", "ASUS", "LENOVO", "DELL"];
 let ssdList = ['128GB', '256GB', '512GB', '1TB', '2TB', '4TB'];
 let ramList = [4, 8, 16, 32, 64]
-let procList = ['AMD', 'Intel', 'Apple M1', 'Apple M2']
+let procList = ['AMD', 'Intel', 'M1', 'M2']
 let screenList = [13, 13.3, 14, 15.6, 16, 17.3]
 let priceList = ['702,00', '644,00', '1192,00', '575,00', '448,00', '530,00', '1019,00', '1402,00', '1502,00']
 
@@ -419,6 +419,8 @@ function sortByScreen6(productList){
 
 let inputProc1 = document.querySelector(`.proc.input1`)
 let inputProc2 = document.querySelector(`.proc.input2`)
+let inputProc3 = document.querySelector(`.proc.input3`)
+let inputProc4 = document.querySelector(`.proc.input4`)
 
 function sortByProc1(productList){
     let newArr = productList.filter(product => product.processor === 'AMD' )
@@ -430,6 +432,16 @@ function sortByProc2(productList){
     return newArr
 }
 
+function sortByProc3(productList){
+    let newArr = productList.filter(product => product.processor === 'M1' )
+    return newArr
+}
+
+function sortByProc4(productList){
+    let newArr = productList.filter(product => product.processor === 'M2' )
+    return newArr
+}
+
 inputProc1.addEventListener('change', (e) => {
     if (e.target.value === 'AMD') {
     render(sortByProc1(productList),wrapper)
@@ -438,6 +450,16 @@ inputProc1.addEventListener('change', (e) => {
 inputProc2.addEventListener('change', (e) => {
     if (e.target.value === 'INTEL') {
     render(sortByProc2(productList),wrapper)
+}})
+
+inputProc3.addEventListener('change', (e) => {
+    if (e.target.value === 'M1') {
+    render(sortByProc3(productList),wrapper)
+}})
+
+inputProc4.addEventListener('change', (e) => {
+    if (e.target.value === 'M2') {
+    render(sortByProc4(productList),wrapper)
 }})
 
 let inputRam1 = document.querySelector(`.ram.input1`)
