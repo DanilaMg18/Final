@@ -237,6 +237,7 @@ function sortFromDownToUp(productList) {
     return newArray
 }
 
+
 let selectEL2 = document.querySelector(`.menu.sort-select`)
 
 selectEL2.addEventListener('change', (e) => {
@@ -254,10 +255,313 @@ function sortFromUpToDown(productList) {
     return newArray
 }
 
+function sortByPrice1(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) <= 600)
+    return newArr
+}
+
+function sortByPrice2(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) > 600 && parseFloat(product.price) < 750)
+    return newArr
+}
+
+function sortByPrice3(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) > 750 && parseFloat(product.price) < 900)
+    return newArr
+}
+
+function sortByPrice4(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) > 900 && parseFloat(product.price) < 1100)
+    return newArr
+}
+
+function sortByPrice5(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) > 1100 && parseFloat(product.price) < 1220)
+    return newArr
+}
+
+function sortByPrice6(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) > 1220 && parseFloat(product.price) < 1500)
+    return newArr
+}
+
+function sortByPrice7(productList){
+    let newArr = productList.filter(product => parseFloat(product.price) > 1500 && parseFloat(product.price) < 1800)
+    return newArr
+}
+
+let inputEl1 = document.querySelector(`.below600.input-price`)
+let inputEl2 = document.querySelector(`.below600.input-price2`)
+let inputEl3 = document.querySelector(`.below600.input-price3`)
+let inputEl4 = document.querySelector(`.below600.input-price4`)
+let inputEl5 = document.querySelector(`.below600.input-price5`)
+let inputEl6 = document.querySelector(`.below600.input-price6`)
+let inputEl7 = document.querySelector(`.below600.input-price7`)
+let inputEl8 = document.querySelector(`.below600.input-price8`)
+let inputEl9 = document.querySelector(`.below600.input-price9`)
+let inputEl10 = document.querySelector(`.below600.input-price10`)
 
 
 
+inputEl1.addEventListener('change', (e) => {
+    if (e.target.value === 'below600') {
+    render(sortByPrice1(productList),wrapper)
+}})
 
+inputEl2.addEventListener('change', (e) => {
+    if (e.target.value === 'below600-750'){
+    render(sortByPrice2(productList), wrapper)
+}})
+
+inputEl3.addEventListener('change', (e) => {
+    if (e.target.value === 'below750-900'){
+    render(sortByPrice3(productList), wrapper)
+}})
+
+inputEl4.addEventListener('change', (e) => {
+    if (e.target.value === 'below900-1100'){
+    render(sortByPrice4(productList), wrapper)
+}})
+
+inputEl5.addEventListener('change', (e) => {
+    if (e.target.value === 'below1100-1220') {
+    render(sortByPrice5(productList),wrapper)
+}})
+
+inputEl6.addEventListener('change', (e) => {
+    if (e.target.value === 'below1220-1500') {
+    render(sortByPrice6(productList),wrapper)
+}})
+
+inputEl7.addEventListener('change', (e) => {
+    if (e.target.value === 'below1500-1800') {
+    render(sortByPrice7(productList),wrapper)
+}})
+
+let inputName1 = document.querySelector(`.TOSHIBA.input`)
+
+inputName1.addEventListener('change', (e) => {
+    if (e.target.value === 'TOSHIBA') {
+    render(sortByName(productList),wrapper)
+}})
+
+function sortByName(productList){
+    let newArr = productList.filter(product => product.producer === 'TOSHIBA')
+    return newArr
+}
+
+let inputScreen1 = document.querySelector(`.screen.input1`)
+let inputScreen2 = document.querySelector(`.screen.input2`)
+let inputScreen3 = document.querySelector(`.screen.input3`)
+let inputScreen4 = document.querySelector(`.screen.input4`)
+let inputScreen5 = document.querySelector(`.screen.input5`)
+let inputScreen6 = document.querySelector(`.screen.input6`)
+
+inputScreen1.addEventListener('change', (e) => {
+    if (e.target.value === 'screen13') {
+    render(sortByScreen(productList),wrapper)
+}})
+
+inputScreen2.addEventListener('change', (e) => {
+    if (e.target.value === 'screen13-3') {
+    render(sortByScreen2(productList),wrapper)
+}})
+
+inputScreen3.addEventListener('change', (e) => {
+    if (e.target.value === 'screen14') {
+    render(sortByScreen3(productList),wrapper)
+}})
+
+inputScreen4.addEventListener('change', (e) => {
+    if (e.target.value === 'screen15-6') {
+    render(sortByScreen4(productList),wrapper)
+}})
+
+inputScreen5.addEventListener('change', (e) => {
+    if (e.target.value === 'screen16') {
+    render(sortByScreen5(productList),wrapper)
+}})
+
+inputScreen6.addEventListener('change', (e) => {
+    if (e.target.value === 'screen17-3') {
+    render(sortByScreen6(productList),wrapper)
+}})
+
+function sortByScreen(productList){
+    let newArr = productList.filter(product => product.specs.screenSizeValue === 13 )
+    return newArr
+}
+
+function sortByScreen2(productList){
+    let newArr = productList.filter(product => product.specs.screenSizeValue === 13.3 )
+    return newArr
+}
+
+function sortByScreen3(productList){
+    let newArr = productList.filter(product => product.specs.screenSizeValue === 14 )
+    return newArr
+}
+
+function sortByScreen4(productList){
+    let newArr = productList.filter(product => product.specs.screenSizeValue === 15.6 )
+    return newArr
+}
+
+function sortByScreen5(productList){
+    let newArr = productList.filter(product => product.specs.screenSizeValue === 16 )
+    return newArr
+}
+
+function sortByScreen6(productList){
+    let newArr = productList.filter(product => product.specs.screenSizeValue === 17.3 )
+    return newArr
+}
+
+let inputProc1 = document.querySelector(`.proc.input1`)
+let inputProc2 = document.querySelector(`.proc.input2`)
+
+function sortByProc1(productList){
+    let newArr = productList.filter(product => product.processor === 'AMD' )
+    return newArr
+}
+
+function sortByProc2(productList){
+    let newArr = productList.filter(product => product.processor === 'Intel' )
+    return newArr
+}
+
+inputProc1.addEventListener('change', (e) => {
+    if (e.target.value === 'AMD') {
+    render(sortByProc1(productList),wrapper)
+}})
+
+inputProc2.addEventListener('change', (e) => {
+    if (e.target.value === 'INTEL') {
+    render(sortByProc2(productList),wrapper)
+}})
+
+let inputRam1 = document.querySelector(`.ram.input1`)
+let inputRam2 = document.querySelector(`.ram.input2`)
+let inputRam3 = document.querySelector(`.ram.input3`)
+let inputRam4 = document.querySelector(`.ram.input4`)
+let inputRam5 = document.querySelector(`.ram.input5`)
+
+function sortByRam1(productList){
+    let newArr = productList.filter(product => product.specs.ram === 4 )
+    return newArr
+}
+
+function sortByRam2(productList){
+    let newArr = productList.filter(product => product.specs.ram === 8 )
+    return newArr
+}
+
+function sortByRam3(productList){
+    let newArr = productList.filter(product => product.specs.ram === 16 )
+    return newArr
+}
+
+function sortByRam4(productList){
+    let newArr = productList.filter(product => product.specs.ram === 32 )
+    return newArr
+}
+
+function sortByRam5(productList){
+    let newArr = productList.filter(product => product.specs.ram === 64 )
+    return newArr
+}
+
+inputRam1.addEventListener('change', (e) => {
+    if (e.target.value === '4') {
+    render(sortByRam1(productList),wrapper)
+}})
+
+inputRam2.addEventListener('change', (e) => {
+    if (e.target.value === '8') {
+    render(sortByRam2(productList),wrapper)
+}})
+
+inputRam3.addEventListener('change', (e) => {
+    if (e.target.value === '16') {
+    render(sortByRam3(productList),wrapper)
+}})
+
+inputRam4.addEventListener('change', (e) => {
+    if (e.target.value === '32') {
+    render(sortByRam4(productList),wrapper)
+}})
+
+inputRam5.addEventListener('change', (e) => {
+    if (e.target.value === '64') {
+    render(sortByRam5(productList),wrapper)
+}})
+
+let inputSsd1 = document.querySelector(`.ssd.input1`)
+let inputSsd2 = document.querySelector(`.ssd.input2`)
+let inputSsd3 = document.querySelector(`.ssd.input3`)
+let inputSsd4 = document.querySelector(`.ssd.input4`)
+let inputSsd5 = document.querySelector(`.ssd.input5`)
+let inputSsd6 = document.querySelector(`.ssd.input6`)
+
+function sortBySsd1(productList){
+    let newArr = productList.filter(product => product.specs.ssd === '128GB' )
+    return newArr
+}
+
+function sortBySsd2(productList){
+    let newArr = productList.filter(product => product.specs.ssd === '256GB' )
+    return newArr
+}
+
+function sortBySsd3(productList){
+    let newArr = productList.filter(product => product.specs.ssd === '512GB' )
+    return newArr
+}
+
+function sortBySsd4(productList){
+    let newArr = productList.filter(product => product.specs.ssd === '1TB' )
+    return newArr
+}
+
+function sortBySsd5(productList){
+    let newArr = productList.filter(product => product.specs.ssd === '2TB' )
+    return newArr
+}
+
+function sortBySsd6(productList){
+    let newArr = productList.filter(product => product.specs.ssd === '4TB' )
+    return newArr
+}
+
+inputSsd1.addEventListener('change', (e) => {
+    if (e.target.value === '128') {
+    render(sortBySsd1(productList),wrapper)
+}})
+
+inputSsd2.addEventListener('change', (e) => {
+    if (e.target.value === '256') {
+    render(sortBySsd2(productList),wrapper)
+}})
+
+inputSsd3.addEventListener('change', (e) => {
+    if (e.target.value === '512') {
+    render(sortBySsd3(productList),wrapper)
+}})
+
+inputSsd4.addEventListener('change', (e) => {
+    if (e.target.value === '1') {
+    render(sortBySsd4(productList),wrapper)
+}})
+
+inputSsd5.addEventListener('change', (e) => {
+    if (e.target.value === '2') {
+    render(sortBySsd5(productList),wrapper)
+}})
+
+inputSsd6.addEventListener('change', (e) => {
+    if (e.target.value === '4') {
+    render(sortBySsd6(productList),wrapper)
+}})
 
 async function getx() {
     let res = await fetch('https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards')
