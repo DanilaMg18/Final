@@ -306,47 +306,96 @@ let inputEl10 = document.querySelector(`.below600.input-price10`)
 inputEl1.addEventListener('change', (e) => {
     if (e.target.value === 'below600') {
     render(sortByPrice1(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputEl2.addEventListener('change', (e) => {
     if (e.target.value === 'below600-750'){
     render(sortByPrice2(productList), wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputEl3.addEventListener('change', (e) => {
     if (e.target.value === 'below750-900'){
     render(sortByPrice3(productList), wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputEl4.addEventListener('change', (e) => {
     if (e.target.value === 'below900-1100'){
     render(sortByPrice4(productList), wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputEl5.addEventListener('change', (e) => {
     if (e.target.value === 'below1100-1220') {
     render(sortByPrice5(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputEl6.addEventListener('change', (e) => {
     if (e.target.value === 'below1220-1500') {
     render(sortByPrice6(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputEl7.addEventListener('change', (e) => {
     if (e.target.value === 'below1500-1800') {
     render(sortByPrice7(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 let inputName1 = document.querySelector(`.TOSHIBA.input`)
+let inputName2 = document.querySelector(`.Apple.input`)
 
 inputName1.addEventListener('change', (e) => {
     if (e.target.value === 'TOSHIBA') {
     render(sortByName(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
+
+
+inputName2.addEventListener('change', (e) => {
+    if (e.target.value === 'Apple') {
+    render(sortByName2(productList),wrapper)
+    console.log(e)
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 function sortByName(productList){
     let newArr = productList.filter(product => product.producer === 'TOSHIBA')
+    return newArr
+}
+
+function sortByName2(productList){
+    let newArr = productList.filter(product => product.producer === 'Apple')
     return newArr
 }
 
@@ -360,32 +409,57 @@ let inputScreen6 = document.querySelector(`.screen.input6`)
 inputScreen1.addEventListener('change', (e) => {
     if (e.target.value === 'screen13') {
     render(sortByScreen(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputScreen2.addEventListener('change', (e) => {
     if (e.target.value === 'screen13-3') {
     render(sortByScreen2(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputScreen3.addEventListener('change', (e) => {
     if (e.target.value === 'screen14') {
     render(sortByScreen3(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputScreen4.addEventListener('change', (e) => {
     if (e.target.value === 'screen15-6') {
     render(sortByScreen4(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputScreen5.addEventListener('change', (e) => {
     if (e.target.value === 'screen16') {
     render(sortByScreen5(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
+
 
 inputScreen6.addEventListener('change', (e) => {
     if (e.target.value === 'screen17-3') {
     render(sortByScreen6(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 function sortByScreen(productList){
     let newArr = productList.filter(product => product.specs.screenSizeValue === 13 )
@@ -445,22 +519,38 @@ function sortByProc4(productList){
 inputProc1.addEventListener('change', (e) => {
     if (e.target.value === 'AMD') {
     render(sortByProc1(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputProc2.addEventListener('change', (e) => {
     if (e.target.value === 'INTEL') {
     render(sortByProc2(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputProc3.addEventListener('change', (e) => {
     if (e.target.value === 'M1') {
     render(sortByProc3(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputProc4.addEventListener('change', (e) => {
     if (e.target.value === 'M2') {
     render(sortByProc4(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 let inputRam1 = document.querySelector(`.ram.input1`)
 let inputRam2 = document.querySelector(`.ram.input2`)
@@ -496,27 +586,47 @@ function sortByRam5(productList){
 inputRam1.addEventListener('change', (e) => {
     if (e.target.value === '4') {
     render(sortByRam1(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputRam2.addEventListener('change', (e) => {
     if (e.target.value === '8') {
     render(sortByRam2(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputRam3.addEventListener('change', (e) => {
     if (e.target.value === '16') {
     render(sortByRam3(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputRam4.addEventListener('change', (e) => {
     if (e.target.value === '32') {
     render(sortByRam4(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputRam5.addEventListener('change', (e) => {
     if (e.target.value === '64') {
     render(sortByRam5(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 let inputSsd1 = document.querySelector(`.ssd.input1`)
 let inputSsd2 = document.querySelector(`.ssd.input2`)
@@ -558,32 +668,56 @@ function sortBySsd6(productList){
 inputSsd1.addEventListener('change', (e) => {
     if (e.target.value === '128') {
     render(sortBySsd1(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputSsd2.addEventListener('change', (e) => {
     if (e.target.value === '256') {
     render(sortBySsd2(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputSsd3.addEventListener('change', (e) => {
     if (e.target.value === '512') {
     render(sortBySsd3(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputSsd4.addEventListener('change', (e) => {
     if (e.target.value === '1') {
     render(sortBySsd4(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputSsd5.addEventListener('change', (e) => {
     if (e.target.value === '2') {
     render(sortBySsd5(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 inputSsd6.addEventListener('change', (e) => {
     if (e.target.value === '4') {
     render(sortBySsd6(productList),wrapper)
-}})
+}
+if (e.target.checked === false ) {
+    render(productList,wrapper)
+}
+})
 
 async function getx() {
     let res = await fetch('https://635d0154cb6cf98e56aa96bd.mockapi.io/productCards')
